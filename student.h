@@ -26,7 +26,7 @@ void removeStudent(student_t **head, student_t **tail, char *last);
 void printForward();
 void printBackward();
 
-void quit(student_t **head);
+void quit();
 
 #endif /* STUDENT_HP */
 
