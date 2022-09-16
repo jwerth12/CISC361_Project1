@@ -157,6 +157,10 @@ void quit() {
         head = head->next;
     }
     free(head);
+    free(tail->last);
+    free(tail->first);
+    free(tail->year);
+    free(tail);
 }
 
 int main() {
