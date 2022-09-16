@@ -104,7 +104,6 @@ void addStudent(student_t **head, student_t **tail) {
         newStudent->prev = current;
         newStudent->next = NULL;
 
-        //current->next = (student_t *)malloc(sizeof(student_t));
         current->next = newStudent;
 
         *tail = newStudent;
@@ -139,7 +138,6 @@ void removeStudent(student_t **head, student_t **tail, char *remove) {
     }
 }
 
-// idk about this one 
 void quit() {
     student_t *hold;
     while (head != NULL) {
@@ -150,19 +148,9 @@ void quit() {
         free(hold->year);
         free(hold);
     }
-    //free(head);
 }
 
 int main() {
-
-/*     student_t *student = (student_t *) malloc(sizeof(student_t));
-    student->first = NULL;
-    student->last = NULL;
-    student->next = NULL;
-    student->prev = NULL;
-
-    head = student;
-    tail = student; */
 
     int option = 0;
 
