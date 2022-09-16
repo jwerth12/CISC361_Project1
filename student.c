@@ -9,25 +9,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define BUFFERSIZE 128
-
-<<<<<<< HEAD
-student_t *head = NULL;
-head->first = NULL;
-head->last = NULL;
-head->next = NULL;
-head->prev = NULL;
-
-student_t *tail = NULL;
-tail->first = NULL;
-tail->last = NULL;
-tail->next = NULL;
-tail->prev = NULL;
-
-=======
 student_t *head;
 student_t *tail;
->>>>>>> ab6e814172807ea26c433a7878d2b4815099e08c
 
 student_t * makeStudent() {
 
@@ -172,9 +155,6 @@ void quit() {
 
 int main() {
 
-<<<<<<< HEAD
-    int option = 0;
-=======
     student_t *student = (student_t *) malloc(sizeof(student_t));
     student->first = NULL;
     student->last = NULL;
@@ -184,8 +164,7 @@ int main() {
     head = student;
     tail = student;
     
-    int option;
->>>>>>> ab6e814172807ea26c433a7878d2b4815099e08c
+    int option = 0;
 
     printf("Welcome! Let's get started! \n Type the corresponding number to the action you would like to perform.");
 
