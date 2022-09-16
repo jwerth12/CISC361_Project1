@@ -11,6 +11,7 @@
 
 #define BUFFERSIZE 128
 
+<<<<<<< HEAD
 student_t *head = NULL;
 head->first = NULL;
 head->last = NULL;
@@ -23,6 +24,10 @@ tail->last = NULL;
 tail->next = NULL;
 tail->prev = NULL;
 
+=======
+student_t *head;
+student_t *tail;
+>>>>>>> ab6e814172807ea26c433a7878d2b4815099e08c
 
 student_t * makeStudent() {
 
@@ -167,7 +172,20 @@ void quit() {
 
 int main() {
 
+<<<<<<< HEAD
     int option = 0;
+=======
+    student_t *student = (student_t *) malloc(sizeof(student_t));
+    student->first = NULL;
+    student->last = NULL;
+    student->next = NULL;
+    student->prev = NULL;
+
+    head = student;
+    tail = student;
+    
+    int option;
+>>>>>>> ab6e814172807ea26c433a7878d2b4815099e08c
 
     printf("Welcome! Let's get started! \n Type the corresponding number to the action you would like to perform.");
 
