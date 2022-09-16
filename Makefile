@@ -1,4 +1,4 @@
-slist: student.0
+slist: student.o
 	gcc student.o -g -o slist
 
 student.o: student.c student.h

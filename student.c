@@ -12,7 +12,17 @@
 #define BUFFERSIZE 128
 
 student_t *head = NULL;
+head->first = NULL;
+head->last = NULL;
+head->next = NULL;
+head->prev = NULL;
+
 student_t *tail = NULL;
+tail->first = NULL;
+tail->last = NULL;
+tail->next = NULL;
+tail->prev = NULL;
+
 
 student_t * makeStudent() {
 
@@ -140,6 +150,7 @@ void removeStudent(student_t **head, student_t **tail, char *remove) {
         }
         current = current->next;
     }
+    free(current);
 }
 
 // idk about this one 
@@ -156,7 +167,7 @@ void quit() {
 
 int main() {
 
-    int option;
+    int option = 0;
 
     printf("Welcome! Let's get started! \n Type the corresponding number to the action you would like to perform.");
 
