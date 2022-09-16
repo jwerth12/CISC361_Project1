@@ -16,7 +16,7 @@ student_t *tail;
 
 student_t * makeStudent() {
 
-    student_t *student = (student_t *) malloc(sizeof(student_t));
+    student_t *student = calloc(1,sizeof(student_t));
     int len;
 
     char last[BUFFERSIZE];
