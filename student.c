@@ -220,6 +220,12 @@ int main() {
             printf("Please enter a valid option\n");
         }
     }
+    free(student->first);
+    free(student->last);
+    free(student->year);
+    free(student->next);
+    free(student->prev);
+    free(student);
 }
 
 
