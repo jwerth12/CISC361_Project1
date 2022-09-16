@@ -68,6 +68,7 @@ void printForward() {
             current = current->next;
         }
     }
+    free(current);
 }
 
 void printBackward() {
@@ -84,6 +85,7 @@ void printBackward() {
             current = current->prev;
         }
     }
+    free(current);
 }
 void addStudent(student_t **head, student_t **tail) {
     student_t * newStudent = makeStudent();
