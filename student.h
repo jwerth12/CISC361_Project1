@@ -29,11 +29,3 @@ void printBackward();
 void quit();
 
 #endif /* STUDENT_HP */
-
-// add student, delete student, print forward, print backward
-/*
-
-student_t *head;
-student_t *tail;
-student_t *current;
-*/
