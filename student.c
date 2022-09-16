@@ -12,6 +12,8 @@
 student_t *head;
 student_t *tail;
 
+#define BUFFERSIZE 128
+
 student_t * makeStudent() {
 
     student_t *student = (student_t *) malloc(sizeof(student_t));
