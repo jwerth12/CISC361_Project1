@@ -9,10 +9,10 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define BUFFERSIZE 128
+
 student_t *head;
 student_t *tail;
-
-#define BUFFERSIZE 128
 
 student_t * makeStudent() {
 
@@ -24,7 +24,7 @@ student_t * makeStudent() {
     fgets(last, 128, stdin);
     len = (int) strlen(last);
     last[len-1] = '\0';
-    student->last = (char *) malloc(len);
+    student->last = (char *) calloc(len,sizeof(char));
     strcpy(student->last, last);
 
     char first[BUFFERSIZE];
@@ -32,7 +32,7 @@ student_t * makeStudent() {
     fgets(first, 128, stdin);
     len = (int) strlen(first);
     first[len-1] = '\0';
-    student->first = (char *) malloc(len);
+    student->first = (char *) calloc(len, sizeof(char));
     strcpy(student->first, first);
 
     printf("Enter student id\n");
@@ -46,7 +46,7 @@ student_t * makeStudent() {
     fgets(year, 128, stdin);
     len = (int) strlen(year);
     year[len-1] = '\0';
-    student->year = (char *) malloc(len);
+    student->year = (char *) calloc(len, sizeof(char));
     strcpy(student->year, year);
 
     printf("Enter student's expected graduation year\n");
@@ -64,11 +64,10 @@ void printForward() {
     }
     else {
         while (current != NULL) {
-            printf("Name: %s, %s \nID Number: %li \nCurrent Year: %s \nExpected Graduation: %d\n\n", current->last, current->first, current->id, current->year, current->grad);
+            printf("Name: %s, %s \nID Number: %li \nCurrent Year: %s \nExpected Graduation: %d\n \n", current->last, current->first, current->id, current->year, current->grad);
             current = current->next;
         }
     }
-    free(current);
 }
 
 void printBackward() {
@@ -81,11 +80,10 @@ void printBackward() {
     {
         while (current != NULL)
         {
-            printf("Name: %s, %s \nID Number: %li \nCurrent Year: %s \nExpected Graduation: %d\n\n", current->last, current->first, current->id, current->year, current->grad);
+            printf("Name: %s, %s \nID Number: %li \nCurrent Year: %s \nExpected Graduation: %d\n \n", current->last, current->first, current->id, current->year, current->grad);
             current = current->prev;
         }
     }
-    free(current);
 }
 void addStudent(student_t **head, student_t **tail) {
     student_t * newStudent = makeStudent();
@@ -106,7 +104,7 @@ void addStudent(student_t **head, student_t **tail) {
         newStudent->prev = current;
         newStudent->next = NULL;
 
-        current->next = (student_t *)malloc(sizeof(student_t));
+        //current->next = (student_t *)malloc(sizeof(student_t));
         current->next = newStudent;
 
         *tail = newStudent;
@@ -127,8 +125,6 @@ void removeStudent(student_t **head, student_t **tail, char *remove) {
                     current->next->prev = NULL;
                     *head = current->next;
                 }
-                
-                // free current
             }
             else if (current->next == NULL) {
                 current->prev->next = NULL;
@@ -138,11 +134,9 @@ void removeStudent(student_t **head, student_t **tail, char *remove) {
                 current->next->prev = current->prev;
                 current->prev->next = current->next;
             } 
-            //free(current);
         }
         current = current->next;
     }
-    free(current);
 }
 
 // idk about this one 
@@ -150,30 +144,26 @@ void quit() {
     student_t *hold;
     while (head != NULL) {
         hold = head; 
+        head = head->next;
         free(hold->last);
         free(hold->first);
         free(hold->year);
         free(hold);
-        head = head->next;
     }
-    free(head);
-    free(tail->last);
-    free(tail->first);
-    free(tail->year);
-    free(tail);
+    //free(head);
 }
 
 int main() {
 
-    student_t *student = (student_t *) malloc(sizeof(student_t));
+/*     student_t *student = (student_t *) malloc(sizeof(student_t));
     student->first = NULL;
     student->last = NULL;
     student->next = NULL;
     student->prev = NULL;
 
     head = student;
-    tail = student;
-    
+    tail = student; */
+
     int option = 0;
 
     printf("Welcome! Let's get started! \n Type the corresponding number to the action you would like to perform.");
@@ -213,26 +203,11 @@ int main() {
         }
         else if (option == 5)
         {
-            quit(&head);
+            quit();
         }
         else
         {
             printf("Please enter a valid option\n");
         }
     }
-    free(student->first);
-    free(student->last);
-    free(student->year);
-    free(student->next);
-    free(student->prev);
-    free(student);
 }
-
-
-/*
-
-valgrind./ executable 
-
-scp command to move file to his virtual machine 
-
-*/
