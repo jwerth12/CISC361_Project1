@@ -64,7 +64,7 @@ void printForward() {
     }
     else {
         while (current != NULL) {
-            printf("Name: %s, %s \nID Number: %li \nCurrent Year: %s \nExpected Graduation: %d\n", current->last, current->first, current->id, current->year, current->grad);
+            printf("Name: %s, %s \nID Number: %li \nCurrent Year: %s \nExpected Graduation: %d\n\n", current->last, current->first, current->id, current->year, current->grad);
             current = current->next;
         }
     }
@@ -80,7 +80,7 @@ void printBackward() {
     {
         while (current != NULL)
         {
-            printf("Name: %s, %s \nID Number: %li \nCurrent Year: %s \nExpected Graduation: %d\n", current->last, current->first, current->id, current->year, current->grad);
+            printf("Name: %s, %s \nID Number: %li \nCurrent Year: %s \nExpected Graduation: %d\n\n", current->last, current->first, current->id, current->year, current->grad);
             current = current->prev;
         }
     }
